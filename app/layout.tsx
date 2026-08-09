@@ -16,6 +16,7 @@ const plexThai = IBM_Plex_Sans_Thai({
 });
 
 import { DICT } from "@/lib/content";
+import JsonLd from "@/components/JsonLd";
 
 const SITE_URL = "https://linkonecompany.com";
 const TITLE = DICT.th.meta.title;
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
+  applicationName: "Linkone",
+  category: "business",
   keywords: [
     "Linkone",
     "จัดการงาน",
@@ -36,13 +39,17 @@ export const metadata: Metadata = {
     "ระบบจัดการทีม",
   ],
   authors: [{ name: "Linkone" }],
+  creator: "Linkone",
+  publisher: "Linkone",
+  formatDetection: { telephone: false, email: false, address: false },
   alternates: {
     canonical: "/",
-    languages: { th: "/", en: "/en" },
+    languages: { th: "/", en: "/en", "x-default": "/" },
   },
   openGraph: {
     type: "website",
     locale: "th_TH",
+    alternateLocale: ["en_US"],
     url: SITE_URL,
     siteName: "Linkone",
     title: DICT.th.meta.ogTitle,
@@ -53,7 +60,11 @@ export const metadata: Metadata = {
     title: DICT.th.meta.ogTitle,
     description: DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
 };
 
 export const viewport: Viewport = {
@@ -65,7 +76,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="th" className={`${inter.variable} ${plexThai.variable}`}>
-      <body>{children}</body>
+      <body>
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }
