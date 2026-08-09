@@ -1,6 +1,5 @@
 import { SITE } from "@/lib/content";
-
-const SITE_URL = "https://linkonecompany.com";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * Structured data (schema.org JSON-LD) for richer search results:

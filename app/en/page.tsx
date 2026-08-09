@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage";
 import { DICT } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
 const meta = DICT.en.meta;
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://linkonecompany.com/en",
+    url: `${SITE_URL}/en`,
     siteName: "Linkone",
     title: meta.ogTitle,
     description: meta.description,

@@ -16,9 +16,9 @@ const plexThai = IBM_Plex_Sans_Thai({
 });
 
 import { DICT } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
 
-const SITE_URL = "https://linkonecompany.com";
 const TITLE = DICT.th.meta.title;
 const DESCRIPTION = DICT.th.meta.description;
 
