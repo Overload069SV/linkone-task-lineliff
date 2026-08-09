@@ -10,9 +10,13 @@ export default function Features({ dict }: { dict: Dict }) {
       <div className="container-x">
         <SectionHeader eyebrow={features.eyebrow} title={features.title} subtitle={features.intro} />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-5">
           {features.items.map((item, i) => (
-            <Reveal key={item.no} delay={(i % 4) * 60}>
+            <Reveal
+              key={item.no}
+              delay={(i % 4) * 60}
+              className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)] xl:w-[calc(25%-0.9375rem)]"
+            >
               <FeatureCard item={item} />
             </Reveal>
           ))}

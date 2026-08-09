@@ -10,9 +10,13 @@ export default function UseCases({ dict }: { dict: Dict }) {
       <div className="container-x">
         <SectionHeader eyebrow={useCases.eyebrow} title={useCases.title} subtitle={useCases.intro} />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 flex flex-wrap justify-center gap-5">
           {useCases.items.map((item, i) => (
-            <Reveal key={item.titleEn} delay={(i % 3) * 70}>
+            <Reveal
+              key={item.titleEn}
+              delay={(i % 3) * 70}
+              className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]"
+            >
               <UseCaseCard item={item} />
             </Reveal>
           ))}
