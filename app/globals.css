@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Linkone — product landing page base styles
+   ============================================================ */
+@layer base {
+  :root {
+    --font-inter: "Inter", sans-serif;
+    --font-thai: "IBM Plex Sans Thai", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    font-family: var(--font-thai), var(--font-inter), system-ui, sans-serif;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.18;
+  }
+
+  ::selection {
+    background: #0057d9;
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid #7fbeff;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Section vertical rhythm */
+  .section-y {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  /* Eyebrow / kicker chip */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5
+           text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-brand-600;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold
+           transition-all duration-200 whitespace-nowrap;
+  }
+  .btn-md { @apply px-6 py-3 text-[0.98rem]; }
+  .btn-lg { @apply px-7 py-3.5 text-base sm:text-[1.05rem]; }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white shadow-brand hover:bg-brand-700 hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply border-[1.5px] border-line bg-white text-ink hover:border-brand-300 hover:text-brand-600 hover:-translate-y-0.5;
+  }
+  .btn-white {
+    @apply bg-white text-brand-600 shadow-lift hover:-translate-y-0.5;
+  }
+  .btn-outline-light {
+    @apply border-[1.5px] border-white/30 bg-white/10 text-white hover:bg-white/20 hover:-translate-y-0.5;
+  }
+
+  /* Generic card */
+  .card {
+    @apply rounded-3xl border border-line bg-white shadow-soft;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(105deg, #0057d9 5%, #1e74e6 55%, #63b8f5 120%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(0, 87, 217, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 87, 217, 0.05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 30%, #000 30%, transparent 78%);
+    mask-image: radial-gradient(ellipse 75% 60% at 50% 30%, #000 30%, transparent 78%);
+  }
+}
+
+/* Reveal-on-scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-floatA, .animate-floatB, .animate-floatY { animation: none !important; }
+}
