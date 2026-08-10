@@ -146,10 +146,12 @@ export interface Dict {
     support: string;
     primaryCta: string;
     secondaryCta: string;
-    floatProgressLabel: string;
-    floatProgressValue: string;
-    floatDoneLabel: string;
-    floatDoneValue: string;
+    float: {
+      progress: { value: string; label: string };
+      approvals: { value: string; label: string };
+      synced: { title: string; sub: string };
+    };
+    miniCards: { title: string; desc: string }[];
     stats: { value: string; unit: string; label: string }[];
   };
   what: { eyebrow: string; title: string; paragraphs: string[]; bullets: string[]; imageAlt: string };
@@ -203,10 +205,16 @@ const th: Dict = {
       "เหมาะสำหรับทีมที่ต้องประสานงานหลายคน หลายโปรเจกต์ หรือทำงานร่วมกับพาร์ทเนอร์ โดยยังเริ่มต้นจากเครื่องมือที่ทีมใช้อยู่ทุกวันอย่าง LINE",
     primaryCta: "เริ่มใช้งาน Linkone",
     secondaryCta: "ดูวิธีการทำงาน",
-    floatProgressLabel: "ความคืบหน้า",
-    floatProgressValue: "68% เสร็จแล้ว",
-    floatDoneLabel: "อัปเดตแล้ว",
-    floatDoneValue: "ทีมเห็นตรงกัน",
+    float: {
+      progress: { value: "68%", label: "เสร็จแล้ว" },
+      approvals: { value: "2", label: "รออนุมัติ" },
+      synced: { title: "ทีมซิงก์แล้ว", sub: "อัปเดตล่าสุด" },
+    },
+    miniCards: [
+      { title: "ทำงานบน LINE", desc: "เริ่มจากกลุ่มที่ทีมใช้อยู่ทุกวัน" },
+      { title: "Task & Subtask", desc: "สร้าง มอบหมาย และติดตามงานชัดเจน" },
+      { title: "ติดตามความคืบหน้า", desc: "เห็นสถานะ แจ้งเตือน และสรุปงาน" },
+    ],
     stats: [
       { value: "0", unit: "แอปใหม่", label: "ใช้ LINE ที่ทีมมีอยู่ ไม่ต้องโหลดแอปเพิ่ม ทั้งใช้งาน รับแจ้งเตือน และดูผลลัพธ์ธุรกิจ" },
       { value: "5", unit: "นาที", label: "เพิ่ม Linkone เข้ากลุ่มและเริ่มมอบหมายงาน" },
@@ -375,10 +383,16 @@ const en: Dict = {
       "Built for teams coordinating across many people, projects, or partners — while starting from the tool your team already uses every day: LINE.",
     primaryCta: "Get started with Linkone",
     secondaryCta: "See how it works",
-    floatProgressLabel: "Progress",
-    floatProgressValue: "68% complete",
-    floatDoneLabel: "Updated",
-    floatDoneValue: "Team in sync",
+    float: {
+      progress: { value: "68%", label: "Complete" },
+      approvals: { value: "2", label: "Pending Approvals" },
+      synced: { title: "Team synced", sub: "Updated" },
+    },
+    miniCards: [
+      { title: "Works inside LINE", desc: "Start from the group your team already uses" },
+      { title: "Task & Subtask", desc: "Create, assign, and follow work clearly" },
+      { title: "Progress Tracking", desc: "See status, reminders, and summaries" },
+    ],
     stats: [
       { value: "0", unit: "new apps", label: "Use the LINE your team already has — no new app to install. Work, get notified, and see business results." },
       { value: "5", unit: "min", label: "Add Linkone to your group and start assigning tasks." },
